@@ -6,5 +6,8 @@ class Order < ActiveRecord::Base
   monetize :total_cents, numericality: true
 
   validates :stripe_charge_id, presence: true
+def send_receipt
+  OrderMailer.send_recept(id).delier_later
+end
 
 end
