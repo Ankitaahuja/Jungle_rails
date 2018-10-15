@@ -134,3 +134,32 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## users
+
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+(0..50).each do |i|
+users.create!({
+  first_name:  Faker::FunnyName.name ,
+  last_name:  Faker::FunnyName.name ,
+  email: 'ankita@mail.com',
+})
+end
+
+## PRODUCTS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+(0..50).each do |i|
+reviews.create!({
+  product:  product.all.sample,
+  user:  user.all.sample,
+  desription: Faker::Hipster.paragraph(4),
+  rating: rand(0..5),
+})
+end
